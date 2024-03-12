@@ -81,6 +81,4 @@ public class AppConfiguration implements WebMvcConfigurer, ApplicationContextAwa
     public EntityManager entityManager(EntityManagerFactory entityManagerFactory) {
         return entityManagerFactory.createEntityManager();
     }
-
-
 }

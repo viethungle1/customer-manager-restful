@@ -11,6 +11,7 @@ function showAllCustomer() {
             <td>${data[i].id}</td>
             <td>${data[i].firstName}</td>
             <td>${data[i].lastName}</td>
+            <td><button onclick="deleteCustomer(${data[i].id})">Delete</button></td>
             </tr>`
             }
             document.getElementById("list").innerHTML=content;
@@ -34,5 +35,34 @@ function createNewCustomer() {
         data: JSON.stringify(newCustomer),
         success: showAllCustomer
     })
+}
+
+function deleteCustomer(id) {
+    $.ajax({
+        type: "DELETE",
+        url: `http://localhost:8080/api/customer/${id}`,
+        success: showAllCustomer
+    });
+}
+
+function updateCustomer() {
+    let id = document.getElementById("id").value;
+    let firstName = document.getElementById("firstName").value;
+    let lastName = document.getElementById("lastName").value;
+    let updateCustomer= {
+        "firstName": firstName,
+        "lastName": lastName
+    }
+    $.ajax({
+        headers :{
+            'Accept': 'Application/json',
+            'Content-Type': 'Application/json'
+        },
+        type: "PUT",
+        url: `http://localhost:8080/api/customer/${id}`,
+        data: JSON.stringify(updateCustomer),
+        success: showAllCustomer
+    })
+
 }
 

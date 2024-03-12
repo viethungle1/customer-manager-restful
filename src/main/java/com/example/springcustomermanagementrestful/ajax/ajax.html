@@ -6,15 +6,29 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
 <body>
-<input type="text" name="firstName" id="firstName" placeholder="firstName">
-<br>
-<input type="text" name="lastName" id="lastName" placeholder="lastName">
-<br>
-<button onclick="createNewCustomer()">create</button>
 <table>
     <tr>
-        <th>firstname</th>
-        <th>lastname</th>
+        <td><label>ID:</label></td>
+        <td><input type="text" name="id" id="id"></td>
+    </tr>
+    <tr>
+        <td><label>FirstName:</label></td>
+        <td><input type="text" name="firstName" id="firstName"></td>
+    </tr>
+    <tr>
+        <td><label>LastName:</label></td>
+        <td><input type="text" name="lastName" id="lastName"></td>
+    </tr>
+</table>
+
+<button onclick="createNewCustomer()">create</button>
+<button onclick="updateCustomer()">update</button>
+<table border="1px">
+    <tr>
+        <th>ID</th>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Delete</th>
     </tr>
     <tbody id="list">
     </tbody>
